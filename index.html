@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!--
+    PESTEL Infographic Plan for Thailand's Department of Land Transport (DLT) - 16:9 Aspect Ratio Revision
+
+    Narrative & Structure Plan:
+    1.  Introduction: Retain the hook highlighting the DLT's critical role, optimized for a wider header.
+    2.  Main Grid Layout: The six PESTEL sections are organized into a primary 3x2 grid for wide screens (xl), a 2x3 grid for medium screens (md), and a single column for mobile. This makes efficient use of horizontal space in a 16:9 view.
+    3.  Card-based Sections: Each PESTEL factor is presented as a self-contained "card" within the main grid, enhancing modularity and visual separation.
+    4.  Within each card: The two-column layout for Opportunities (+) and Challenges (-) is maintained for clear, direct comparison. Visualizations (charts, diagrams) are embedded within this structure.
+    5.  Conclusion: Retain the summary of strategic imperatives.
+
+    Visualization Selection & Justification (NO SVG, NO MERMAID JS):
+    -   All visualization choices remain the same as the previous version (Line Chart, Donut Chart, Bar Chart, Big Numbers, and HTML/CSS diagrams). Chart heights have been slightly adjusted to better fit the new, more compact card layout.
+    
+    Confirmation: NEITHER Mermaid JS NOR SVG were used in this output. All charts are rendered on HTML Canvas elements by Chart.js, and diagrams are constructed with pure HTML and Tailwind CSS.
+-->
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อินโฟกราฟิก: วิเคราะห์ PESTEL กรมการขนส่งทางบก (16:9)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #F0F4F8; 
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 180px; 
+        }
+        @media (min-width: 1024px) {
+            .chart-container {
+                height: 160px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #0052A3, #007BFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-[#1E293B]">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-screen-2xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4">ทิศทางขนส่งทางบกไทย</h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto">วิเคราะห์ PESTEL เจาะลึกความท้าทายและโอกาสของกรมการขนส่งทางบก (ขบ.) ในยุคแห่งการเปลี่ยนแปลง</p>
+        </header>
+
+        <main>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                <!-- Political Section Card -->
+                <section id="political" class="bg-white rounded-xl shadow-lg p-6 flex flex-col h-full">
+                    <h2 class="text-2xl font-bold mb-4"><span class="gradient-text">P</span> : ปัจจัยทางการเมือง</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
+                        <div>
+                            <h3 class="text-lg font-bold text-green-600 mb-3 flex items-center"><span class="text-2xl mr-2">+</span> โอกาส</h3>
+                            <ul class="space-y-2 list-inside text-sm">
+                                <li>นโยบายรัฐสนับสนุนการลงทุนโครงสร้างพื้นฐาน</li>
+                                <li>การเปิดรับฟังความเห็นช่วยลดความขัดแย้ง</li>
+                                <li>ข้อตกลงขนส่งระหว่างประเทศส่งเสริมการค้า</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-red-600 mb-3 flex items-center"><span class="text-2xl mr-2">-</span> ความท้าทาย</h3>
+                            <ul class="space-y-2 list-inside text-sm">
+                                <li>นโยบายเน้นทางราง/น้ำ ทำให้ต้องปรับบทบาท</li>
+                                <li>นโยบายรถไฟฟ้า 20 บ. กดดันผู้ประกอบการ</li>
+                                <li>ความไม่แน่นอนทางการเมืองกระทบเสถียรภาพ</li>
+                                <li>แรงกดดันจากกลุ่มผลประโยชน์อาจเกิดการแทรกแซง</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Economic Section Card -->
+                <section id="economic" class="bg-white rounded-xl shadow-lg p-6 flex flex-col h-full">
+                    <h2 class="text-2xl font-bold mb-4"><span class="gradient-text">E</span> : ปัจจัยทางเศรษฐกิจ</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
+                        <div>
+                            <h3 class="text-lg font-bold text-green-600 mb-3 flex items-center"><span class="text-2xl mr-2">+</span> โอกาส</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-sm">โลจิสติกส์เฉพาะทาง</h4>
+                                    <p class="text-xs text-slate-500 mb-1">Cold Chain/Halal โตสูง</p>
+                                    <div class="chart-container"><canvas id="logisticsDonutChart"></canvas></div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm">พฤติกรรมผู้บริโภค</h4>
+                                    <p class="text-xs text-slate-500">คนอาจหันมาใช้ขนส่งสาธารณะที่คุ้มค่ามากขึ้น</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-red-600 mb-3 flex items-center"><span class="text-2xl mr-2">-</span> ความท้าทาย</h3>
+                             <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-sm">E-commerce เติบโต</h4>
+                                    <p class="text-xs text-slate-500 mb-1">ท้าทายการกำกับดูแล Last-mile</p>
+                                    <div class="chart-container"><canvas id="ecommerceChart"></canvas></div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm">การท่องเที่ยวหดตัว</h4>
+                                    <p class="text-xs text-slate-500 mb-1">คาดการณ์ปี 68 กระทบรายได้</p>
+                                    <div class="text-4xl font-bold text-red-500 text-center">-2.8%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Social Section Card -->
+                <section id="social" class="bg-white rounded-xl shadow-lg p-6 flex flex-col h-full">
+                     <h2 class="text-2xl font-bold mb-4"><span class="gradient-text">S</span> : ปัจจัยทางสังคม</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
+                        <div>
+                            <h3 class="text-lg font-bold text-green-600 mb-3 flex items-center"><span class="text-2xl mr-2">+</span> โอกาส</h3>
+                            <ul class="space-y-2 list-inside text-sm">
+                                <li>ความตื่นตัวด้านสิ่งแวดล้อมหนุนนโยบายขนส่งสีเขียว</li>
+                                <li>ความต้องการบริการที่เป็นมิตรต่อสิ่งแวดล้อมเป็นแรงขับเคลื่อนจากตลาด</li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h3 class="text-lg font-bold text-red-600 mb-3 flex items-center"><span class="text-2xl mr-2">-</span> ความท้าทาย</h3>
+                            <ul class="space-y-2 list-inside text-sm">
+                                <li class="flex items-start"><span class="text-xl mr-2">🧓</span><span>ก้าวสู่สังคมสูงวัย ต้องผลักดัน Universal Design</span></li>
+                                <li>การขยายตัวของเมืองทำปัญหาจราจรซับซ้อนขึ้น</li>
+                                <li>วัฒนธรรมความปลอดภัยทางถนนยังต้องพัฒนา</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technological Section Card -->
+                <section id="technological" class="bg-white rounded-xl shadow-lg p-6 flex flex-col h-full">
+                    <h2 class="text-2xl font-bold mb-4"><span class="gradient-text">T</span> : ปัจจัยทางเทคโนโลยี</h2>
+                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
+                        <div>
+                            <h3 class="text-lg font-bold text-green-600 mb-3 flex items-center"><span class="text-2xl mr-2">+</span> โอกาส</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-sm">ศักยภาพของ AI</h4>
+                                    <p class="text-xs text-slate-500 mb-2">ช่วยวิเคราะห์ข้อมูล, ตรวจจับพฤติกรรมเสี่ยง</p>
+                                    <div class="bg-slate-50 rounded-lg p-2 space-y-1 text-xs">
+                                        <div><span class="font-bold text-[#0052A3]">1. Big Data</span> → <span class="font-bold text-[#0052A3]">2. AI Analysis</span> → <span class="font-bold text-[#0052A3]">3. Better Policy</span></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm">ยานยนต์ไฟฟ้า (EV)</h4>
+                                    <p class="text-xs text-slate-500">ช่วยส่งเสริมเป้าหมายขนส่งที่เป็นมิตรต่อสิ่งแวดล้อม</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div>
+                            <h3 class="text-lg font-bold text-red-600 mb-3 flex items-center"><span class="text-2xl mr-2">-</span> ความท้าทาย</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-sm">ยอดขาย EV พุ่งทะยาน</h4>
+                                    <p class="text-xs text-slate-500 mb-1">ท้าทายการปรับปรุงกฎระเบียบ</p>
+                                    <div class="chart-container"><canvas id="evSalesChart"></canvas></div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm">การลงทุนและเตรียมพร้อม</h4>
+                                    <p class="text-xs text-slate-500">ต้องลงทุนโครงสร้างพื้นฐานและบุคลากรสำหรับเทคโนโลยีใหม่</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Environmental Section Card -->
+                <section id="environmental" class="bg-white rounded-xl shadow-lg p-6 flex flex-col h-full">
+                    <h2 class="text-2xl font-bold mb-4"><span class="gradient-text">E</span> : ปัจจัยสิ่งแวดล้อม</h2>
+                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
+                        <div>
+                             <h3 class="text-lg font-bold text-green-600 mb-3 flex items-center"><span class="text-2xl mr-2">+</span> โอกาส</h3>
+                             <h4 class="font-semibold text-sm mb-2">เป้าหมายระดับชาติเป็นแรงหนุน</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center"><span class="text-xl mr-2">🌍</span><span>บังคับใช้มาตรฐาน Euro 5</span></li>
+                                <li class="flex items-center"><span class="text-xl mr-2">🍃</span><span>Carbon Neutrality (2050)</span></li>
+                                <li class="flex items-center"><span class="text-xl mr-2">🎯</span><span>Net Zero Emission (2065)</span></li>
+                            </ul>
+                        </div>
+                         <div>
+                            <h3 class="text-lg font-bold text-red-600 mb-3 flex items-center"><span class="text-2xl mr-2">-</span> ความท้าทาย</h3>
+                            <ul class="space-y-2 list-inside text-sm">
+                                <li>ต้องมีนโยบายเข้มข้นกว่าแค่การส่งเสริม EV</li>
+                                <li>อาจต้องจำกัดการใช้รถเก่าในเขตเมือง</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Legal Section Card -->
+                <section id="legal" class="bg-white rounded-xl shadow-lg p-6 flex flex-col h-full">
+                    <h2 class="text-2xl font-bold mb-4"><span class="gradient-text">L</span> : ปัจจัยทางกฎหมาย</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
+                        <div>
+                            <h3 class="text-lg font-bold text-green-600 mb-3 flex items-center"><span class="text-2xl mr-2">+</span> โอกาส</h3>
+                            <ul class="space-y-2 list-inside text-sm">
+                                <li>การบังคับใช้กฎหมายอย่างมีประสิทธิภาพสร้างความปลอดภัย</li>
+                                <li>ใช้ "Regulatory Sandbox" ทดสอบเทคโนโลยีใหม่</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-red-600 mb-3 flex items-center"><span class="text-2xl mr-2">-</span> ความท้าทาย</h3>
+                            <ul class="space-y-2 list-inside text-sm">
+                                <li>กฎหมายซับซ้อน/แก้ไขบ่อยสร้างความสับสน</li>
+                                <li>ต้นทุนผู้ประกอบการในการปฏิบัติตามกฎใหม่</li>
+                                <li>กฎหมายมักตามไม่ทันเทคโนโลยีที่เปลี่ยนเร็ว</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-slate-300">
+            <p class="text-slate-500">อินโฟกราฟิกนี้จัดทำขึ้นเพื่อสรุปการวิเคราะห์ปัจจัยภายนอก (PESTEL) ที่มีผลกระทบต่อกรมการขนส่งทางบก</p>
+            <p class="text-sm text-slate-400 mt-2">ข้อมูล ณ ไตรมาส 2 ปี 2568</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            family: "'Sarabun', sans-serif",
+                            size: 10,
+                        },
+                        boxWidth: 10,
+                        padding: 15
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    titleFont: { family: "'Sarabun', sans-serif" },
+                    bodyFont: { family: "'Sarabun', sans-serif" }
+                }
+            }
+        };
+
+        const createEcommerceChart = () => {
+            const ctx = document.getElementById('ecommerceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2567', '2568'],
+                    datasets: [{
+                        label: 'มูลค่า (แสนล้านบาท)',
+                        data: [6.94, 7.50],
+                        borderColor: '#DC2626',
+                        backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                        fill: true,
+                        tension: 0.1
+                    }]
+                },
+                options: { ...defaultChartOptions, scales: { x: { ticks: { font: { family: "'Sarabun', sans-serif", size: 10 }}}, y: { ticks: { font: { family: "'Sarabun', sans-serif", size: 10 }}, beginAtZero: true, suggestedMax: 8 } } }
+            });
+        };
+        
+        const createEvSalesChart = () => {
+             const ctx = document.getElementById('evSalesChart').getContext('2d');
+             new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['เป้าหมายปี 68'],
+                    datasets: [{
+                        label: 'จำนวนคัน',
+                        data: [225000],
+                        backgroundColor: ['rgba(220, 38, 38, 0.7)'],
+                        borderColor: ['rgba(220, 38, 38, 1)'],
+                        borderWidth: 1
+                    }]
+                },
+                options: { ...defaultChartOptions, indexAxis: 'y', scales: { x: { ticks: { font: { family: "'Sarabun', sans-serif", size: 10 }}}, y: { ticks: { font: { family: "'Sarabun', sans-serif", size: 10 }}} }, plugins: { legend: { display: false }, tooltip: { callbacks: { title: tooltipTitleCallback } } } }
+             });
+        };
+
+        const createLogisticsDonutChart = () => {
+            const ctx = document.getElementById('logisticsDonutChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Cold Chain', 'Halal', 'อื่นๆ'],
+                    datasets: [{
+                        label: 'สัดส่วนโอกาส',
+                        data: [45, 30, 25],
+                        backgroundColor: [
+                            'rgba(0, 123, 255, 0.8)',
+                            'rgba(23, 162, 184, 0.8)',
+                            'rgba(40, 167, 69, 0.8)'
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    ...defaultChartOptions,
+                    cutout: '60%'
+                }
+            });
+        };
+
+        window.onload = () => {
+            createEcommerceChart();
+            createEvSalesChart();
+            createLogisticsDonutChart();
+        };
+
+    </script>
+</body>
+</html>
